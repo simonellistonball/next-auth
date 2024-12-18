@@ -82,7 +82,7 @@ export default function renderPage(params: RenderPageParams) {
       }
     },
     signin(providerId?: string, error?: any) {
-      if (providerId) throw new UnknownAction("Unsupported action")
+      if (!providerId) throw new UnknownAction("Unsupported action")
       if (pages?.signIn) {
         let signinUrl = `${pages.signIn}${
           pages.signIn.includes("?") ? "&" : "?"
